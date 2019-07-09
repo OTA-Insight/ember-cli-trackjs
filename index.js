@@ -29,17 +29,17 @@ module.exports = {
 		if (defaultTree) {
 			trees.push(defaultTree);
     }
-    const trackjsPath = path.join(this.project.root, 'node_modules', 'trackjs')
-    
+    const trackjsPath = path.join('../', 'node_modules', 'trackjs')
+
     const browserVendorLib = fastbootTransform(
       new Funnel(trackjsPath, {
         files: ["tracker.js"],
         destDir: "trackjs"
       })
     );
-  
+
     trees.push(browserVendorLib);
-    
+
     return mergeTrees(trees);
   },
 
